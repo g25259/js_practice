@@ -27,6 +27,8 @@ function VIPUser(name, pwd, id) {
 }
 
 VIPUser.prototype = Object.create(User.prototype);
+//New property, can check my favorite how to utilize
+VIPUser.prototype.constructor = VIPUser;
 
 var user = new User("John", "aa");
 var user_no_new = User("David", "aa");
@@ -52,5 +54,5 @@ console.log(Object.getPrototypeOf(
         Object.getPrototypeOf(vip)) === User.prototype);
 console.log("Object.create(user):");
 console.log(Object.create(user));
-console.log(object);
 console.log(VIPUser.prototype === User.prototype);
+console.log(VIPUser.prototype.constructor);

@@ -45,3 +45,71 @@ for (var score in scores) {
     total += score;
 }
 console.log(total);
+
+
+console.log("---Item 50---");
+var st = "test test";
+[].forEach.call(st, function(s){
+    console.log(s);
+})
+console.log("-------------");
+
+
+console.log("---Item 50---");
+var ar = "another test";
+console.log(ar);
+var aar = [].slice.call(ar);
+console.log(aar);
+console.log("-------------");
+
+
+//Provide optional object.
+//In order to avoid repeative implementation, we provid extend function.
+console.log("---Item 55---");
+function extend(target, source) {
+    if (source) {
+        for (var key in source) {
+            var val = source[key];
+            if (typeof val !== "undefined") {
+                target[key] = val;
+            }
+        }
+    }
+    return target;
+}
+console.log("--------------");
+
+
+console.log("---Item 65---");
+
+block = function(n) {
+    var i = 0;
+    while (i < n) {
+        i++;
+    }
+}
+
+
+nonblock = function(i, n) {
+    function next() {
+        if (i < n) {
+            setTimeout(next, 0);
+            i++;
+        } else {
+            console.log("3");
+            console.log(Date.now() - start);
+        }
+  
+    }
+    setTimeout(next, 0);
+}
+
+var start = Date.now();
+block(100000000);
+console.log("1");
+console.log(Date.now() - start);
+
+start = Date.now();
+nonblock(0, 100000000);
+console.log("2");
+console.log(Date.now() - start);
